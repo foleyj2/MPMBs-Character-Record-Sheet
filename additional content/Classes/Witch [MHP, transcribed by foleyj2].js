@@ -364,11 +364,6 @@ ClassList["wytch"] = {
         cantrips :  levels.map( function(n) { return n < 4 ? 2 : n < 10 ? 3 : 4 ; } ),
         spells : [4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14],
     },
-    // Shouldn't need the list because we have our own spell list
-    /*spellcastingList : {
-        class : "wytch",
-        level : [0, 9]
-    },*/    
     subclasses : ["Wytch Craft", ["wytch-red magic",]],
     features : {
         "spellcasting" : {
@@ -391,6 +386,7 @@ ClassList["wytch"] = {
                 name : "Hideous",
                 source : ["MHP:CW", 3],
                 description : "Your appearance is ghastly to behold. When you roll initiative, you can choose one humanoid you can see to scare. That creature must make a Wisdom saving throw or be frightened until the end of your next turn.",
+                action : ["action", ""]
             },
             "hollow": {
                 name : "Hollow",
@@ -428,15 +424,25 @@ ClassList["wytch"] = {
             action : ["action", ""],
             usages : "at will",
         },
-        "improved familiar" : {
-            name : "Improve Familiar",
+        "familiar" : {
+            name : "Find Familiar",
             source : ["MHP:CW", 3],
             minlevel : 2,
             description : desc([
-                "Familiar summoned without components"
+                "You learn the find familiar spell and can cast it as a ritual without material components. The spell doesn’t count against your number of spells known.", 
+                "Additionally, once per turn as an action or a bonus action, you can allow your familiar to use its reaction to make one attack or cast a spell. When your familiar makes an attack, it uses your spell attack bonus instead of its own attack bonus on attack rolls, and deals damage equal to your proficiency bonus, if it would otherwise deal less. You also add twice your witch level to your familiar's maximum hit points.", 
+                "When you cast the spell, you can choose one of the normal forms for your familiar or one of the special forms"
             ]),
             action : ["action", ""],
             usages : "at will",
+            spellcastingBonus : {
+                name : "Wytch Familiar",
+                class : "wizard",
+                spells : ["find familiar"],
+                atwill : true,
+            }
+            
+    
         },    
     }
 };
