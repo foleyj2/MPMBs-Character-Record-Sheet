@@ -433,12 +433,15 @@ ClassList["wytch"] = {
                 "Additionally, once per turn as an action or a bonus action, you can allow your familiar to use its reaction to make one attack or cast a spell. When your familiar makes an attack, it uses your spell attack bonus instead of its own attack bonus on attack rolls, and deals damage equal to your proficiency bonus, if it would otherwise deal less. You also add twice your witch level to your familiar's maximum hit points.", 
                 "When you cast the spell, you can choose one of the normal forms for your familiar or one of the special forms"
             ]),
+            // TODO: figure out how to add familiar attack to bonus
+            // TODO: figure out how to modify settings on familiar sheet
             action : ["action", ""],
             usages : "at will",
             spellcastingBonus : {
                 name : "Wytch Familiar",
                 class : "wizard",
                 spells : ["find familiar"],
+                selection : ["find familiar"],
                 atwill : true,
             }
             
@@ -448,9 +451,51 @@ ClassList["wytch"] = {
 };
 
 ClassSubList["wytch-red magic"] = {
-    regExpSearch : /^(?=.*wytchy)(?=.*red).*$/i,
+    regExpSearch : /^(?=.*wytch)(?=.*red).*$/i,
     subname : "Red Magic",
     source : ["MHP:CW", 16],
-    spellcastingExtra : ["burning hands", "heat metal", "fireball", "wall of fire", "immolation"],
+    // When this is selected, we are level 3 so we get the first 3 levels
+    spellcastingExtra : ["burning hands", "heat metal", "fireball", "wall of fire", "immolation", "ice storm", "wall of fire", "cone of cold", "telekinesis"].concat(new Array(91)).concat("AddToKnown"),
+    // To get the spells to be known, we have to conact at index 100
+
+    features : {
+        "subclassfeature3": {
+            name : "Hex: Imperil",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "Starting at 3rd level, you know how to strip away your foes' magical defenses. As an action, choose one creature you can see within 60 feet to make a Constitution saving throw, and choose any one damage type. On a failed save, the creature loses resistance to the given damage type until the end of your next turn, or is treated as having only resistance, if it is immune.",
+            action : ["action", ""],
+
+        },       
+        "subclassfeature6": {
+            name : "Convolute Energy",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc(["At 6th level, when you deal damage, you can change the type of damage from acid into poison, from cold into fire, from lightning into thunder, from necrotic into radiant, or vice versa.",
+                                "Additionally, you can use your reaction when you take damage of one of these types to subtract your Charisma modifier from the damage dealt."]),
+        },
+        "subclassfeature10": {
+            name : "Invulnerability",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc(["Beginning at 10th level, when an attacker that you can see hits you with an attack, you can use your reaction to briefly become invulnerable. Subtract 50 from the damage dealt, to a minimum of 0.",
+                                "Once you use this ability, you can’t use it again until you finish a long rest."]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "Elemental Annihilation",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc(["Starting at 14th level, when you cast a spell which deals acid, cold, fire, lightning, or thunder damage, you can expend another spell slot of equal or higher level to maximize the damage dealt.",
+"Once you use this ability, you can’t use it again until you finish a long rest."]),
+        },
+        usages : 1,
+        recovery : "long rest",
+
+    }
+
 };    
 
