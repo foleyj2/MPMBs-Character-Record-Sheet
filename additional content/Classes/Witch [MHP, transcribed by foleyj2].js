@@ -38,10 +38,10 @@ SourceList["MHP:CW"] = {
 
 
 /*************** SPELLS ********************************/
-// Define the "witch" spells that are not already defined
+// Define the "wytch" spells that are not already defined
 SpellsList["accursed act"] = {
     name : "Accursed Act",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 26],
     level : 1,
     school : "Ench",
@@ -57,7 +57,7 @@ SpellsList["accursed act"] = {
 
 SpellsList["corruption curse"] = {
     name : "Corruption Curse",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 26],
     level : 6,
     school : "Necro",
@@ -71,7 +71,7 @@ SpellsList["corruption curse"] = {
 
 SpellsList["curse of aging"] = {
     name : "Curse of Aging",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 26],
     level : 6,
     school : "Trans",
@@ -86,7 +86,7 @@ SpellsList["curse of aging"] = {
 
 SpellsList["curse of binding"] = {
     name : "Curse of Binding",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 26],
     level : 7,
     school : "Ench(rit)",
@@ -102,7 +102,7 @@ SpellsList["curse of binding"] = {
 
 SpellsList["curse of blades"] = {
     name : "Curse of Blades",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 26],
     level : 3,
     school : "Necro",
@@ -117,7 +117,7 @@ SpellsList["curse of blades"] = {
 
 SpellsList["curse of chains"] = {
     name : "Curse of Chains",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 27],
     level : 1,
     school : "Necro",
@@ -132,7 +132,7 @@ SpellsList["curse of chains"] = {
 
 SpellsList["curse of tomes"] = {
     name : "Curse of Tomes",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 27],
     level : 1,
     school : "Ench",
@@ -147,7 +147,7 @@ SpellsList["curse of tomes"] = {
 
 SpellsList["curse ward"] = {
     name : "Curse Ward",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 27],
     level : 2,
     school : "Abjur",
@@ -161,7 +161,7 @@ SpellsList["curse ward"] = {
 
 SpellsList["curse weapon"] = {
     name : "Curse Weapon",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 27],
     level : 5,
     school : "Trans",
@@ -175,7 +175,7 @@ SpellsList["curse weapon"] = {
 
 SpellsList["curse of youth"] = {
     name : "Curse of Youth",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 28],
     level : 4,
     school : "Trans",
@@ -193,7 +193,7 @@ SpellsList["curse of youth"] = {
 
 SpellsList["flawed reconstruction"] = {
     name : "Flawed Reconstruction",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 28],
     level : 1,
     school : "Trans",
@@ -208,7 +208,7 @@ SpellsList["flawed reconstruction"] = {
 
 SpellsList["frolicking fountain"] = {
     name : "Frolicking Fountain",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 28],
     level : 1,
     school : "Ench",
@@ -224,7 +224,7 @@ SpellsList["frolicking fountain"] = {
 
 SpellsList["hollowing curse"] = {
     name : "Hollowing Curse",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 29],
     level : 1,
     school : "Necro",
@@ -239,7 +239,7 @@ SpellsList["hollowing curse"] = {
 
 SpellsList["identity curse"] = {
     name : "Identity Curse",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 29],
     level : 9,
     school : "Ench",
@@ -254,7 +254,7 @@ SpellsList["identity curse"] = {
 
 SpellsList["intrusive thought"] = {
     name : "Intrusive thought",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 29],
     level : 2,
     school : "Trans",
@@ -269,7 +269,7 @@ SpellsList["intrusive thought"] = {
 
 SpellsList["pharaoh's curse"] = {
     name : "Pharaoh's Curse",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 29],
     level : 5,
     school : "Necro",
@@ -284,7 +284,7 @@ SpellsList["pharaoh's curse"] = {
 
 SpellsList["ruby-eye curse"] = {
     name : "Ruby-Eye Curse",
-    classes : ["witch"],
+    classes : ["wytch"],
     source : ["MHP:CW", 29],
     level : 3,
     school : "Necro",
@@ -330,12 +330,12 @@ SpellsList["ruby-eye curse"] = {
     // 9th level
     "astral projection", "foresight", "imprisonment", "weird"
 ].forEach(function (mySpells) {
-    if (SpellsList[mySpells]) SpellsList[mySpells].classes.push("witch");
+    if (SpellsList[mySpells]) SpellsList[mySpells].classes.push("wytch");
 });
 
 
-ClassList["witch"] = {
-    regExpSearch : /witch/i,
+ClassList["wytch"] = {
+    regExpSearch : /wytch/i,
     name : "Wytch",
     source : ["MHP:CW", 1],
     primaryAbility : "\n \u2022 Wytch: Charisma;",
@@ -346,7 +346,7 @@ ClassList["witch"] = {
     }),
     die : 8,
     saves : ["Wis", "Cha"],
-    skills : ["\n\n" + toUni("witch") + ": Choose two from Arcana, Animal Handling, History, Insight, Medicine, Nature, and Religion."],
+    skills : ["\n\n" + toUni("wytch") + ": Choose two from Arcana, Animal Handling, History, Insight, Medicine, Nature, and Religion."],
     toolProfs : {
         primary : ["Alchemist's supplies", "Poisoner's kit"],
         secondary : ["Alchemist's supplies", "Poisoner's kit"]
@@ -363,14 +363,12 @@ ClassList["witch"] = {
     spellcastingKnown : {
         cantrips :  levels.map( function(n) { return n < 4 ? 2 : n < 10 ? 3 : 4 ; } ),
         spells : [4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14],
-        prepared : false
     },
-    // Don't need the list because we have our own spell list
+    // Shouldn't need the list because we have our own spell list
     /*spellcastingList : {
-        class : "witch",
+        class : "wytch",
         level : [0, 9]
-    },
-    */
+    },*/    
     subclasses : ["Wytch Craft", ["wytch-red magic",]],
     features : {
         "spellcasting" : {
@@ -382,6 +380,34 @@ ClassList["witch"] = {
                 "I can cast my prepared wytch spells as rituals if they have the ritual tag"
             ]),
             additional : levels.map( function(n) { return (n < 4 ? 2 : n < 10 ? 3 : 4) + " cantrips known"; })
+        },
+        "wytch's curse" : {
+            name : "Wytch's Curse",
+            source : ["MHP:CW", 3],
+            minlevel : 1,
+            description : "\n   You are wracked by a terrible curse which infects your body and soul. At 1st level, choose the form that this curse takes on \"Choose Feature\".",
+            choices: ["Hideous", "Hollow", "Possessed"],
+            "hideous": {
+                name : "Hideous",
+                source : ["MHP:CW", 3],
+                description : "Your appearance is ghastly to behold. When you roll initiative, you can choose one humanoid you can see to scare. That creature must make a Wisdom saving throw or be frightened until the end of your next turn.",
+            },
+            "hollow": {
+                name : "Hollow",
+                source : ["MHP:CW", 3],
+                description : "Your soul has been divorced from your body, trapping you in a limbo between life and death. When you reduce a hostile creature to 0 hit points, you drain some of its life force, and gain temporary hit points equal to your wytch level + Charisma modifier (minimum of 1).",
+            },
+            "possessed": {
+                name : "Possessed",
+                source : ["MHP:CW", 4],
+                description : "Your soul is occupied by a foreign spirit that sometimes tries to wrest away your consciousness. However, while you sleep, the spirit whispers magical secrets to you. You learn an additional wytch spell at a level for which you have spell slots at 1st level, and again at 4th level, 8th level, 12th level, and 16th level. These spells do not count against your total number of spells known.",
+                spellcastingBonus : {
+                    name : "Possessed",
+                    class : "wytch",
+                    times : levels.map( function(n) { return (n < 4 ? 1 : n < 8 ? 2 : n < 12 ? 3 : 4) } ),
+                    oncelr : true,
+                }
+            },
         },
         "subclassfeature2" : {
             name : "Wytch Craft",
