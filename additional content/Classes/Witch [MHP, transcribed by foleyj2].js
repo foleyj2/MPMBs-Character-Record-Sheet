@@ -1,15 +1,33 @@
-var iFileName = "wytch-simple.js";
+var iFileName = "Witch [MHP, transcribed by foleyj2].js";
 RequiredSheetVersion(12.999);
-// This is an implementation of Mage Hand Press' Witch class
-// Transcribed by Joseph T. Foley <foley AT RU dot IS>
-// For some strange reason, the sorcerer class is triggered on line 1192 in _vars/ListsClasses.js
+/*	-WHAT IS THIS?-
+	This file adds optional material to "MPMB's Character Record Sheet" found at https://www.reddit.com/r/mpmb/comments/7gkjkw/sheet_downloads_faq/
+	Import this file using the "Add Extra Materials" bookmark.
 
-
-/* Based upon: This class has been made by /u/Zarieth on the subbreddit /UnearthedArcana 
-   It can be found here: https://reddit.com/5dtd1x/
-   This code is based on v0.4 of /u/Zarieth's work (2017-03-06)
+	-KEEP IN MIND-
+	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
 */
 
+/*	-INFORMATION-
+	Subject:	Class
+	Effect:		This script adds a class called the "Witch" and its 14 subclasses
+	
+				This class has been made by MageHandPress 
+				It can be found here: https://store.magehandpress.com/products/witch
+				This code is based upon the version published on 2017
+					
+	Code by:	foleyj2 <foley AT RU dot IS>
+	Date:		2018-02-12 (sheet v12.999)
+        Source:         
+*/
+
+/* Known issues: For some strange reason, the sorcerer class is triggered on line 1192 in _vars/ListsClasses.js if the ID has "witch" in it
+   Workaround: ID is wytch
+*/
+// Let's try a hack.  Nope, doesn't work.  Not sure why.
+//Base_ClassList["sorcerer"]["regExpSearch"] = /sorcerer/i;
+
+/*************** SOURCES *******************************/
 SourceList["MHP:CW"] = {
     name : "MageHandPress: Complete Witch",
     abbreviation : "MHP:CW",
@@ -20,10 +38,10 @@ SourceList["MHP:CW"] = {
 
 
 /*************** SPELLS ********************************/
-// Define the "wytch" spells that are not already defined
+// Define the "witch" spells that are not already defined
 SpellsList["accursed act"] = {
     name : "Accursed Act",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 26],
     level : 1,
     school : "Ench",
@@ -39,7 +57,7 @@ SpellsList["accursed act"] = {
 
 SpellsList["corruption curse"] = {
     name : "Corruption Curse",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 26],
     level : 6,
     school : "Necro",
@@ -53,7 +71,7 @@ SpellsList["corruption curse"] = {
 
 SpellsList["curse of aging"] = {
     name : "Curse of Aging",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 26],
     level : 6,
     school : "Trans",
@@ -68,7 +86,7 @@ SpellsList["curse of aging"] = {
 
 SpellsList["curse of binding"] = {
     name : "Curse of Binding",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 26],
     level : 7,
     school : "Ench(rit)",
@@ -84,7 +102,7 @@ SpellsList["curse of binding"] = {
 
 SpellsList["curse of blades"] = {
     name : "Curse of Blades",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 26],
     level : 3,
     school : "Necro",
@@ -99,7 +117,7 @@ SpellsList["curse of blades"] = {
 
 SpellsList["curse of chains"] = {
     name : "Curse of Chains",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 27],
     level : 1,
     school : "Necro",
@@ -114,7 +132,7 @@ SpellsList["curse of chains"] = {
 
 SpellsList["curse of tomes"] = {
     name : "Curse of Tomes",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 27],
     level : 1,
     school : "Ench",
@@ -129,7 +147,7 @@ SpellsList["curse of tomes"] = {
 
 SpellsList["curse ward"] = {
     name : "Curse Ward",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 27],
     level : 2,
     school : "Abjur",
@@ -143,7 +161,7 @@ SpellsList["curse ward"] = {
 
 SpellsList["curse weapon"] = {
     name : "Curse Weapon",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 27],
     level : 5,
     school : "Trans",
@@ -157,7 +175,7 @@ SpellsList["curse weapon"] = {
 
 SpellsList["curse of youth"] = {
     name : "Curse of Youth",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 28],
     level : 4,
     school : "Trans",
@@ -175,7 +193,7 @@ SpellsList["curse of youth"] = {
 
 SpellsList["flawed reconstruction"] = {
     name : "Flawed Reconstruction",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 28],
     level : 1,
     school : "Trans",
@@ -190,7 +208,7 @@ SpellsList["flawed reconstruction"] = {
 
 SpellsList["frolicking fountain"] = {
     name : "Frolicking Fountain",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 28],
     level : 1,
     school : "Ench",
@@ -206,7 +224,7 @@ SpellsList["frolicking fountain"] = {
 
 SpellsList["hollowing curse"] = {
     name : "Hollowing Curse",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 29],
     level : 1,
     school : "Necro",
@@ -221,7 +239,7 @@ SpellsList["hollowing curse"] = {
 
 SpellsList["identity curse"] = {
     name : "Identity Curse",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 29],
     level : 9,
     school : "Ench",
@@ -236,7 +254,7 @@ SpellsList["identity curse"] = {
 
 SpellsList["intrusive thought"] = {
     name : "Intrusive thought",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 29],
     level : 2,
     school : "Trans",
@@ -251,7 +269,7 @@ SpellsList["intrusive thought"] = {
 
 SpellsList["pharaoh's curse"] = {
     name : "Pharaoh's Curse",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 29],
     level : 5,
     school : "Necro",
@@ -266,7 +284,7 @@ SpellsList["pharaoh's curse"] = {
 
 SpellsList["ruby-eye curse"] = {
     name : "Ruby-Eye Curse",
-    classes : ["wytch"],
+    classes : ["witch"],
     source : ["MHP:CW", 29],
     level : 3,
     school : "Necro",
@@ -312,12 +330,12 @@ SpellsList["ruby-eye curse"] = {
     // 9th level
     "astral projection", "foresight", "imprisonment", "weird"
 ].forEach(function (mySpells) {
-    if (SpellsList[mySpells]) SpellsList[mySpells].classes.push("wytch");
+    if (SpellsList[mySpells]) SpellsList[mySpells].classes.push("witch");
 });
 
 
-ClassList["wytch"] = {
-    regExpSearch : /wytch/i,
+ClassList["witch"] = {
+    regExpSearch : /witch/i,
     name : "Wytch",
     source : ["MHP:CW", 1],
     primaryAbility : "\n \u2022 Wytch: Charisma;",
@@ -328,10 +346,10 @@ ClassList["wytch"] = {
     }),
     die : 8,
     saves : ["Wis", "Cha"],
-    skills : ["\n\n" + toUni("Wytch") + ": Choose two from Arcana, Animal Handling, History, Insight, Medicine, Nature, and Religion."],
+    skills : ["\n\n" + toUni("witch") + ": Choose two from Arcana, Animal Handling, History, Insight, Medicine, Nature, and Religion."],
     toolProfs : {
-        primary : ["Alchemist's supplies", ["Herbalism or poisoner's kit", 1]],
-        secondary : ["Alchemist's supplies", ["Herbalism or poisoner's kit", 1]]
+        primary : ["Alchemist's supplies", "Poisoner's kit"],
+        secondary : ["Alchemist's supplies", "Poisoner's kit"]
     },
     armor : [
         [true, false, false, false]
@@ -340,18 +358,19 @@ ClassList["wytch"] = {
         [true, false, ["blowgun", "shortsword", "whip"]]
     ],
     equipment : "Wytch starting equipment:\n \u2022 A whip and blowgun -or- a light crossbow and 20 bolts -or- any simple weapon;\n \u2022 A component pouch -or- an a totem;\n \u2022 A scholar's pack -or- dungeoneer's pack;\n \u2022 Leather armor, any simple weapon and one daggers.\n\nAlternatively, choose 3d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
-    attacks : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    attacks : levels.map( function(n) { return 1; } ),
     spellcastingFactor : 1,
     spellcastingKnown : {
-        cantrips : [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        cantrips :  levels.map( function(n) { return n < 4 ? 2 : n < 10 ? 3 : 4 ; } ),
         spells : [4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14],
-        prepared : true
+        prepared : false
     },
     // Don't need the list because we have our own spell list
-    spellcastingList : {
-        class : "wytch",
+    /*spellcastingList : {
+        class : "witch",
         level : [0, 9]
     },
+    */
     subclasses : ["Wytch Craft", ["wytch-red magic",]],
     features : {
         "spellcasting" : {
