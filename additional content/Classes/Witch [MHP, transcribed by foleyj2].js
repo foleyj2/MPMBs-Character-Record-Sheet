@@ -348,16 +348,18 @@ ClassList["witch"] = {
     }),
     die : 8,
     saves : ["Wis", "Cha"],
-    skills : ["\n\n" + toUni("witch") + ": Choose two from Arcana, Animal Handling, History, Insight, Medicine, Nature, and Religion."],
+    skills : ["\n\n" + toUni("Witch") + ": Choose two from Arcana, Animal Handling, History, Insight, Medicine, Nature, and Religion."],
     toolProfs : {
         primary : ["Alchemist's supplies", "Poisoner's kit"],
-        secondary : ["Alchemist's supplies", "Poisoner's kit"]
+        secondary : ["Alchemist's supplies", "Poisoner's kit"],
     },
     armor : [
-        [true, false, false, false]
+        [true, false, false, false],
+        [true, false, false, false]//multiclass
     ],
     weapons : [
-        [true, false, ["blowgun", "shortsword", "whip"]]
+        [true, false, ["blowgun", "shortsword", "whip"]],
+        [true, false, ["blowgun", "shortsword", "whip"]]//multiclass
     ],
     equipment : "Witch starting equipment:\n \u2022 A whip and blowgun -or- a light crossbow and 20 bolts -or- any simple weapon;\n \u2022 A component pouch -or- an a totem;\n \u2022 A scholar's pack -or- dungeoneer's pack;\n \u2022 Leather armor, any simple weapon and one daggers.\n\nAlternatively, choose 3d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
     attacks : levels.map( function(n) { return 1; } ),
