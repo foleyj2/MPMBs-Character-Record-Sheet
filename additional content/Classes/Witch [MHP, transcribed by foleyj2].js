@@ -455,7 +455,8 @@ ClassSubList["wytch-red magic"] = {
     subname : "Red Magic",
     source : ["MHP:CW", 16],
     // When this is selected, we are level 3 so we get the first 3 levels
-    spellcastingExtra : ["burning hands", "heat metal", "fireball", "wall of fire", "immolation", "ice storm", "wall of fire", "cone of cold", "telekinesis"].concat(new Array(91)).concat("AddToKnown"),
+    
+   
     // To get the spells to be known, we have to conact at index 100
 
     features : {
@@ -466,7 +467,29 @@ ClassSubList["wytch-red magic"] = {
             description : "Starting at 3rd level, you know how to strip away your foes' magical defenses. As an action, choose one creature you can see within 60 feet to make a Constitution saving throw, and choose any one damage type. On a failed save, the creature loses resistance to the given damage type until the end of your next turn, or is treated as having only resistance, if it is immune.",
             action : ["action", ""],
 
-        },       
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Red Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Red Magic (Sorc)",
+                class : "sorcerer",
+                spells : ["burning hands", "scorching ray", "fireball", "protection from energy", "ice storm" , "wall of fire","cone of cold", "telekinesis"],
+                selection : ["burning hands", "scorching ray", "fireball", "protection from energy", "ice storm" , "wall of fire","cone of cold", "telekinesis"],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Red Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Red Magic (Wiz)",
+                class : "wizard",
+                spells : ["magic missile", "melf's acid arrow",],
+                selection : ["magic missile", "melf's acid arrow",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
         "subclassfeature6": {
             name : "Convolute Energy",
             minlevel : 6,
