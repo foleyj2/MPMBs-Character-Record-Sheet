@@ -373,7 +373,7 @@ ClassList["witch"] = {
         cantrips :  levels.map( function(n) { return n < 4 ? 2 : n < 10 ? 3 : 4 ; } ),
         spells : [4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14],
     },
-    subclasses : ["Witch Craft", ["witch-red magic",]],
+    subclasses : ["Witch Craft", ["witch-black magic", "witch-blood magic", "witch-blue magic", "witch-cloud magic", "witch-fragrant magic", "witch-green magic", "witch-heart magic", "witch-lunar magic", "witch-purple magic", "witch-red magic", "witch-salt magic", "witch-sand magic", "witch-tea magic", "witch-white magic",]],
     features : {
         "spellcasting" : {
             name : "Spellcasting",
@@ -415,7 +415,7 @@ ClassList["witch"] = {
                 }
             },
         },
-        "subclassfeature2" : {
+        "subclassfeature3" : {
             name : "Witch's Craft",
             source : ["MHP:CW", 4],
             minlevel : 3, 
@@ -749,15 +749,639 @@ ClassList["witch"] = {
     }
 };
 
+ClassSubList["witch-black magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*black).*$/i,
+    subname : "Black Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Black Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Black Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Black Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Black Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+
+};
+
+ClassSubList["witch-blood magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*blood).*$/i,
+    subname : "Blood Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus blood Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Blood Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus blood Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Blood Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+};    
+
+ClassSubList["witch-blue magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*blue).*$/i,
+    subname : "Blue Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Blue Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Blue Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Blue Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Blue Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+
+};    
+
+ClassSubList["witch-cloud magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*cloud).*$/i,
+    subname : "Cloud Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Cloud Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Cloud Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Cloud Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Cloud Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+
+};    
+
+ClassSubList["witch-fragrant magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*fragrant).*$/i,
+    subname : "Fragrant Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Fragrant Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Fragrant Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Fragrant Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Fragrant Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+
+};    
+
+ClassSubList["witch-green magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*green).*$/i,
+    subname : "Green Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Green Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Green Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Green Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Green Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+};
+
+ClassSubList["witch-heart magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*heart).*$/i,
+    subname : "Heart Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Heart Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Heart Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Heart Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Heart Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+
+};    
+
+ClassSubList["witch-lunar magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*lunar).*$/i,
+    subname : "Lunar Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Lunar Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Lunar Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Lunar Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Lunar Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+
+};    
+
+ClassSubList["witch-purple magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*purple).*$/i,
+    subname : "Purple Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Purple Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Purple Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Purple Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Purple Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+
+};    
+
+
 ClassSubList["witch-red magic"] = {
     regExpSearch : /^(?=.*witch)(?=.*red).*$/i,
     subname : "Red Magic",
     source : ["MHP:CW", 16],
-    // When this is selected, we are level 3 so we get the first 3 levels
-    
-   
-    // To get the spells to be known, we have to conact at index 100
-
     features : {
         "subclassfeature3": {
             name : "Hex: Imperil",
@@ -775,7 +1399,7 @@ ClassSubList["witch-red magic"] = {
                 class : "sorcerer",
                 spells : ["burning hands", "scorching ray", "fireball", "protection from energy", "ice storm" , "wall of fire","cone of cold", "telekinesis"],
                 selection : ["burning hands", "scorching ray", "fireball", "protection from energy", "ice storm" , "wall of fire","cone of cold", "telekinesis"],
-                times : [1, 1, 2, 2, 4, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
             },
         },
         "subclassfeature3.2" : {
@@ -813,13 +1437,292 @@ ClassSubList["witch-red magic"] = {
             name : "Elemental Annihilation",
             minlevel : 14,
             source : ["MHP:CW", 16],
-            description : desc(["Starting at 14th level, when you cast a spell which deals acid, cold, fire, lightning, or thunder damage, you can expend another spell slot of equal or higher level to maximize the damage dealt.",
-                "Once you use this ability, you can’t use it again until you finish a long rest."]),
+            description : desc([
+                "Starting at 14th level, when you cast a spell which deals acid, cold, fire, lightning, or thunder damage, you can expend another spell slot of equal or higher level to maximize the damage dealt.",
+                "Once you use this ability, you can’t use it again until you finish a long rest."
+            ]),       
+            usages : 1,
+            recovery : "long rest",
         },
-        usages : 1,
-        recovery : "long rest",
+    }
+};    
 
+ClassSubList["witch-salt magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*salt).*$/i,
+    subname : "Salt Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Salt Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Salt Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Salt Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Salt Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
     }
 
 };    
 
+ClassSubList["witch-sand magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*sand).*$/i,
+    subname : "Sand Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Sand Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Sand Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Sand Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Sand Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+
+};    
+
+ClassSubList["witch-tea magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*tea).*$/i,
+    subname : "Tea Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus Tea Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Tea Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus Tea Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Tea Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+
+};
+
+ClassSubList["witch-white magic"] = {
+    regExpSearch : /^(?=.*witch)(?=.*white).*$/i,
+    subname : "White Magic",
+    source : ["MHP:CW", 16],
+    features : {
+        "subclassfeature3": {
+            name : "Hex: ??",
+            minlevel : 3,
+            source : ["MHP:CW", 16],
+            description : "",
+            action : ["action", ""],
+
+        },
+        "subclassfeature3.1" : {
+            name : "Bonus White Magic Spells (Sorcerer)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "White Magic (Sorcerer)",
+                class : "sorcerer",
+                spells : ["", "", "", "", "", "", "", ""],
+                selection : ["", "", "", "", "", "","", ""],
+                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+            },
+        },
+        "subclassfeature3.2" : {
+            name : "Bonus White Magic Spells (Wizard)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "White Magic (Wizard)",
+                class : "wizard",
+                spells : ["", "",],
+                selection : ["", "",],
+                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            },
+        },
+        "subclassfeature6": {
+            name : "",
+            minlevel : 6,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ])
+
+        },
+        "subclassfeature10": {
+            name : "",
+            minlevel : 10,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            action : ["reaction", ""],
+            usages : 1,
+            recovery : "long rest",
+
+        },
+        "subclassfeature14": {
+            name : "",
+            minlevel : 14,
+            source : ["MHP:CW", 16],
+            description : desc([
+                "",
+            ]),
+            usages : 1,
+            recovery : "long rest",
+        }
+    }
+
+};    
