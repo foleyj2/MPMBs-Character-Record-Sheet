@@ -755,10 +755,10 @@ ClassSubList["witch-black magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Agony",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "You have mastered a hex that wracks a creature with waves of pain. As an action, choose one creature you can see within 60 feet to make a Constitution saving throw. On a failed save, the creature is in agony. The creature has disadvantage on concentration checks. At the beginning of its turn, roll any die. On an odd roll, the creature has disadvantage on attack rolls until the end of its turn. This effect lasts until the beginning of your next turn",
             action : ["action", ""],
 
         },
@@ -768,52 +768,71 @@ ClassSubList["witch-black magic"] = {
             spellcastingBonus : {
                 name : "Black Magic (Sorcerer)",
                 class : "sorcerer",
-                spells : ["", "", "", "", "", "", "", ""],
-                selection : ["", "", "", "", "", "","", ""],
-                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+                spells : ["false life", "magic weapon", "blight", "cloudkill",],
+                selection : ["false life", "magic weapon", "blight", "cloudkill",],
+                times : levels.map( function(n) {
+                    return n < 2 ? 1 : n < 4 ? 2 : 4;
+                }),
             },
         },
         "subclassfeature3.2" : {
+            name : "Bonus Black Magic Spells (Cleric)",
+            minlevel : 3,            
+            spellcastingBonus : {
+                name : "Black Magic (Cleric)",
+                class : "cleric",
+                spells : ["inflict wounds", "gentle repose", "animate dead", "contagion"],
+                selection : ["", "",],
+                times : levels.map( function(n) {
+                    return n < 2 ? 1 : n < 4 ? 2 : n < 6 ? 3 : 5;
+                }),
+            },
+        },
+        "subclassfeature3.3" : {
             name : "Bonus Black Magic Spells (Wizard)",
             minlevel : 3,            
             spellcastingBonus : {
                 name : "Black Magic (Wizard)",
-                class : "wizard",
-                spells : ["", "",],
-                selection : ["", "",],
-                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                class : "sorcerer",
+                spells : ["vampiric touch"],
+                selection : ["vampiric touch"],
+                times : levels.map( function(n) {
+                    return n < 4 ? 0 : 1;
+                }),
             },
         },
+
         "subclassfeature6": {
-            name : "",
+            name : "Voodoo Doll",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you have fashioned a voodoo doll to enhance your black magic. As an action, you can modify this voodoo doll to resemble a humanoid creature you can see within 60 feet. For 1 minute, while the doll resembles this creature, you can target the creature with spells, melee weapon attacks, and hexes by targeting the doll instead.  The creature takes half damage from effects targeting it in this way.",
+                "If you modify your doll with a possession of the target, such as fabric from its garment or a lock of its hair, the creature has disadvantage on saving throws against the next hex or spell you target it with.",
             ])
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Share Pain",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "At 10th level, as a reaction when you take damage, you can transfer some of that damage to another target. Choose a creature you can see within 30 feet to make a Charisma saving throw. On a failed save, the creature takes the damage that would have been dealt to you, and you take no damage. After using this ability, you must take a short or long rest before you can use it again.",
             ]),
             action : ["reaction", ""],
             usages : 1,
-            recovery : "long rest",
+            recovery : "short rest",
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Disrupt Life",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can wither away living things with a wave of necrotic energy. As an action, you can expend 1 spell slot. Each living creature you choose within 20 feet of you must make a Constitution saving throw. On a failed save a creature takes 1d10 necrotic damage for each level of the spell slot expended + your Charisma modifier, or half as much on a successful save.",
             ]),
             usages : 1,
-            recovery : "long rest",
+            action : ["action", ""],
         }
     }
 
@@ -825,10 +844,10 @@ ClassSubList["witch-blood magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Vengeance",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "as an action, you invite dark forces into your blood, warding you from peril. Until the end of your next turn, whenever you take damage from a creature you can see, that creature takes 1d8 necrotic damage.",
             action : ["action", ""],
 
         },
@@ -855,32 +874,33 @@ ClassSubList["witch-blood magic"] = {
             },
         },
         "subclassfeature6": {
-            name : "",
+            name : "Deathseeker",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "At 6th level, you can see those near death shrouded in a crimson aura. Even in heavily obscured conditions, you can detect the location of injured creatures within 60 feet that have 10 or fewer hit points. This sense can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.",
             ])
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Life Tether",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "You've learned how to drain the life from others. You can cast the spell hollowing curse once without using a spell slot. When you do, you gain temporary hit points equal to half the necrotic damage dealt. Temporary hit points you gain from necrotic damage dealt on subsequent turns add to temporary hit points you already have.", 
+                "Once you use this ability, you can't use it again until you finish a short or long rest.",
             ]),
-            action : ["reaction", ""],
+            action : ["action", ""],
             usages : 1,
-            recovery : "long rest",
+            recovery : "short rest",
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Sanguine",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "You can draw magic from your own blood. As an action, you can choose to lose a number of hit points to regain an expended spell slot. You lose 10 hit points per slot level, up to a maximum of 50 hit points for a 5th level spell slot. Once you use this ability, you can't regain hit points for 1 minute.",
             ]),
             usages : 1,
             recovery : "long rest",
@@ -894,50 +914,28 @@ ClassSubList["witch-blue magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Arcane Awareness",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "you have a second-sense for ambient magical energy. You can use your action to cast the spell detect magic without using a spell slot. The effects of this spell last until the end of your next turn. In addition, while this spell is active, you can use an action or bonus action to detect if a creature you can see within 60 feet has the Spellcasting feature, Innate Spellcasting trait, or any other ability that allows the creature to cast a spell.",
             action : ["action", ""],
 
         },
-        "subclassfeature3.1" : {
-            name : "Bonus Blue Magic Spells (Sorcerer)",
-            minlevel : 3,            
-            spellcastingBonus : {
-                name : "Blue Magic (Sorcerer)",
-                class : "sorcerer",
-                spells : ["", "", "", "", "", "", "", ""],
-                selection : ["", "", "", "", "", "","", ""],
-                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
-            },
-        },
-        "subclassfeature3.2" : {
-            name : "Bonus Blue Magic Spells (Wizard)",
-            minlevel : 3,            
-            spellcastingBonus : {
-                name : "Blue Magic (Wizard)",
-                class : "wizard",
-                spells : ["", "",],
-                selection : ["", "",],
-                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-            },
-        },
         "subclassfeature6": {
-            name : "",
+            name : "Turquoise Efficiency",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you have learned to be frugal with the magical energy you absorb from spells. You have advantage on saving throws against spells that you know. In addition, if you make a successful save against a spell that you know, you can regain an expended spell slot of the same level. Once you regain a spell slot in this manner, you can't do so again until you finish a long rest",
             ])
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Copycat",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can copy a creature's skills, in addition to their magic. When you see another creature make an ability check using a skill in which it is proficient, you can gain proficiency with that skill, if you are not already proficient, until you take a long rest. Once you use this ability, you must finish a long rest before using it again.",
             ]),
             action : ["reaction", ""],
             usages : 1,
@@ -945,11 +943,11 @@ ClassSubList["witch-blue magic"] = {
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Cerulean Reflection",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "Beginning at 14th level, you can use your body as a conduit to transmit magic back at other casters. When you are subjected to a spell that allows you to make a saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail. If you succeed the saving throw by 10 or more, you can use your reaction to cast the spell back at the caster, as though it originated from you, turning the caster into the target. Once you reflect a spell in this way, you can't do so again until you finish a long rest.",
             ]),
             usages : 1,
             recovery : "long rest",
@@ -964,10 +962,10 @@ ClassSubList["witch-cloud magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Light Heels",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "You can twist a hex to hold you aloft. As an action, you can gain a flight speed equal to your base movement speed. However, you must end your movement on solid ground, otherwise you fall. This effect lasts until the end of your next turn.",
             action : ["action", ""],
 
         },
@@ -994,35 +992,32 @@ ClassSubList["witch-cloud magic"] = {
             },
         },
         "subclassfeature6": {
-            name : "",
+            name : "Corvid Familiar",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "your witch’s familiar becomes a monstrous hybrid, with black feathers and beady eyes. It gains a flying speed of 50 feet (unless it already has a faster flying speed), the ability to speak Common and the following trait:",
+                "Keen Sight. The familiar has advantage on Wisdom (Perception) checks that rely on sight.",
             ]),
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Hex: Vortex",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can tangle the winds into howling vortices. As an action, choose three 5-foot cubes that you can see, which are each filled with a twisting vortex of wind until the end of your next turn. The vortices are difficult terrain and push fog, smoke, and other gases out of their area. Small or smaller flying creatures or objects can't pass through the vortices, and loose, lightweight materials brought into them fly upward. Arrows, bolts, and other projectiles launched at targets behind a vortex are deflected upward and automatically miss. (Boulders hurled by giants or siege engines, and similar projectiles, are unaffected.)  Creatures in gaseous form can't pass through them.",
             ]),
-            action : ["reaction", ""],
-            usages : 1,
-            recovery : "long rest",
+            action : ["action", ""],
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Cloud Dancer",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "Your affinity for the skies grants you a supernatural grace while airborne. Whenever you are flying, falling, or levitating, you add your Charisma modifier to your armor class.",
             ]),
-            usages : 1,
-            recovery : "long rest",
         }
     }
 
@@ -1034,10 +1029,10 @@ ClassSubList["witch-fragrant magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Befuddle",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "you generate distracting scents in the air around your foes, making it difficult for them to cast spells. As an action, choose one creature you can see within 60 feet to make a Constitution saving throw. On a failed save, the creature has disadvantage on spell attack rolls and Wisdom checks until the beginning of your next turn.",
             action : ["action", ""],
 
         },
@@ -1064,35 +1059,41 @@ ClassSubList["witch-fragrant magic"] = {
             },
         },
         "subclassfeature6": {
-            name : "",
+            name : "Potpourri",
             minlevel : 6,
-            source : ["MHP:CW", 16],
+            source : ["MHP:CW", 13],
             description : desc([
-                "",
+                "your eclectic experiences and holistic approach to life have given you unique insights into a wide range of topics. You gain proficiency with one skill of your choice, and you can learn one cantrip from any class, including this one. The chosen cantrip counts as a witch spell to you and does not count against the total number of cantrips you can learn.",
             ]),
 
         },
-        "subclassfeature10": {
-            name : "",
-            minlevel : 10,
-            source : ["MHP:CW", 16],
+        "subclassfeature6.1": {
+            name : "Aromatherapy",
+            minlevel : 6,
+            source : ["MHP:CW", 13],
             description : desc([
-                "",
+                "you can replace any verbal, somatic, and material components for your witch spells by burning incense. When you do so, the incense is always consumed by the spell, and if the spell would normally require material components with a gp value, you must use an equal value of incense."
             ]),
-            action : ["reaction", ""],
+
+        },
+
+        "subclassfeature10": {
+            name : "Fragrant Distallation",
+            minlevel : 10,
+            source : ["MHP:CW", 13],
+            description : desc([
+                "you have learned to make your own aromatherapy materials. When you use your Cauldron ability during a long rest, you can also produce one vial of perfume, smelling salts or essential oil, one scented candle, or two blocks of incense (MHP:CW p.13)",
+            ]),
             usages : 1,
             recovery : "long rest",
-
         },
         "subclassfeature14": {
-            name : "",
+            name : "Olfactory Aurora",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you are constantly surrounded by a flowery fog that puts your allies into a positive state of mind. Whenever a friendly creature within 30 feet of you makes an attack roll, ability check or saving throw, they can add a d4 to the roll.",
             ]),
-            usages : 1,
-            recovery : "long rest",
         }
     }
 
@@ -1104,50 +1105,41 @@ ClassSubList["witch-green magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Twin Familiar",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "you can use your action to cause your familiar to split into a pair of identical creatures for 1 minute. Both familiar twins have half the hit points and maximum hit points of the original, rounded up. All spells and hexes affecting your familiar affect both twins. The twins move independently, and can each make an attack when you command them to as a bonus action. When one twin dies, the remaining familiar's hit point maximum returns to normal.  You can cast other hexes while this hex is in effect.",
             action : ["action", ""],
 
         },
         "subclassfeature3.1" : {
-            name : "Bonus Green Magic Spells (Sorcerer)",
+            name : "Bonus Green Magic Spells (Druid)",
             minlevel : 3,            
             spellcastingBonus : {
-                name : "Green Magic (Sorcerer)",
-                class : "sorcerer",
-                spells : ["", "", "", "", "", "", "", ""],
-                selection : ["", "", "", "", "", "","", ""],
-                times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
-            },
-        },
-        "subclassfeature3.2" : {
-            name : "Bonus Green Magic Spells (Wizard)",
-            minlevel : 3,            
-            spellcastingBonus : {
-                name : "Green Magic (Wizard)",
-                class : "wizard",
-                spells : ["", "",],
-                selection : ["", "",],
-                times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                name : "Green Magic (Druid)",
+                class : "druid",
+                spells : ["entagle", "speak with animals", "barkskin", "beast sense", "conjure animals", "plant growth", "conjure woodland beings", "stoneskin", "awaken", "tree stride"],
+                selection : ["entagle", "speak with animals", "barkskin", "beast sense", "conjure animals", "plant growth", "conjure woodland beings", "stoneskin", "awaken", "tree stride"],
+                times : [2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
             },
         },
         "subclassfeature6": {
-            name : "",
+            name : "Friend of the Forest",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
-            ])
+                "You can find allies anywhere in nature. Once per day, you can perform a 10-minute long ritual to call a beast of challenge 1 or lower from the environment. This beast is friendly to you and your companions and follows your commands. After 1 hour passes, or if you or one of your companions harms the target, the effect ends and the beast returns to the wild.",
+            ]),
+            usages : 1,
+            recovery : "dawn",
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Sacrifice Familiar",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can drain your familiar's vitality as a bnus action. You regain hit points equal to half your familiar's hit points (rounded down) and your familiar dies. You can't summon your familiar again until you finish a short or long rest.",
             ]),
             action : ["reaction", ""],
             usages : 1,
@@ -1155,14 +1147,12 @@ ClassSubList["witch-green magic"] = {
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Ancient Aura",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you have advantage on saving throws from spells.",
             ]),
-            usages : 1,
-            recovery : "long rest",
         }
     }
 };
@@ -1173,20 +1163,20 @@ ClassSubList["witch-heart magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Shine",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "you learn a hex for inspiring your allies. As an action, you can perform a thrilling and exciting display to kindle the inner fire of a friendly creature that can see you within 60 feet. Until the end of your next turn, that creature adds 1d4 to the first attack roll that it makes on its next turn.",
             action : ["action", ""],
 
         },
         "subclassfeature3.1" : {
-            name : "Bonus Heart Magic Spells (Sorcerer)",
+            name : "Bonus Heart Magic Spells (Cleric)",
             minlevel : 3,            
             spellcastingBonus : {
-                name : "Heart Magic (Sorcerer)",
-                class : "sorcerer",
-                spells : ["", "", "", "", "", "", "", ""],
+                name : "Heart Magic (Cleric)",
+                class : "cleric",
+                spells : ["animal messenger", "lesser restoration", "animate head", "conjure woodland beings", "", "", "", ""],
                 selection : ["", "", "", "", "", "","", ""],
                 times : [1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
             },
@@ -1197,44 +1187,46 @@ ClassSubList["witch-heart magic"] = {
             spellcastingBonus : {
                 name : "Heart Magic (Wizard)",
                 class : "wizard",
-                spells : ["", "",],
+                spells : ["shield", "silent image", "hypnotic pattern", "polymorph", "animate objects", "teleportation circle"],
                 selection : ["", "",],
                 times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
             },
         },
         "subclassfeature6": {
-            name : "",
+            name : "Believing Heart",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "your confidence is so strong that it has a tangible effect on the world, making it easier for you to perform mundane tasks. You can add a +1 bonus to all ability checks you make.",
             ])
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Transformative Alchemy",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can use the potions you brew with your Cauldron feature to perform unique alchemical reactions. As an action, you can spend one of your potions to produce the following effects. These effects are not magical in nature and cannot be dispelled.",
+                "Fertilise. You pour out your potion onto the ground and whisper an incantation. This has the same effect as casting a plant growth spell on that spot, except that the radius is 30 feet and the effects are reversed after 10 minutes.",
+                "Puppet. You pour your potion onto a tiny nonmagical object. It comes to life as per the animate objects spell.",
+                "Transmute. You speak a magic word and transform your potion into a flask containing one of the following: acid, alchemist’s fire, holy water, or lamp oil. The flaskdisintegrates after 24 hours.",
             ]),
-            action : ["reaction", ""],
             usages : 1,
             recovery : "long rest",
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Seven Magic Words",
             minlevel : 14,
-            source : ["MHP:CW", 16],
+            source : ["MHP:CW", 15],
             description : desc([
-                "",
+                "you have discovered the words that unlock the seals on an ancient power. As an action, you can chant the words and unleash the power. All creatures of your choice within 60 feet of you are no longer blinded, charmed, deafened, diseased, frightened, invisible, paralyzed or poisoned and lose one level of exhaustion, if they have any. If they are suffering from an effect that reduces their maximum hit points, the effect ends and their hit point maximum is restored.",
+                "Once you have used this ability, you must complete a long rest before you can use it again.",
             ]),
             usages : 1,
             recovery : "long rest",
         }
     }
-
 };    
 
 ClassSubList["witch-lunar magic"] = {
@@ -1243,10 +1235,10 @@ ClassSubList["witch-lunar magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Lunacy",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "You gain the ability to drive people mad. As an action, choose one creature you can see within 60 feet to make a Charisma saving throw. On a failed save, the creature suffers from one long-term madness effect, selected at random, until the end of your next turn.",
             action : ["action", ""],
 
         },
@@ -1273,20 +1265,20 @@ ClassSubList["witch-lunar magic"] = {
             },
         },
         "subclassfeature6": {
-            name : "",
+            name : "Under Cover of Darkness",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "You have developed a supernatural affinity for shadows. When you are in an area of dim light or darkness, you can use your bonus action to take the Hide action.",
             ])
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Everlasting Night",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "You can use your accursed powers to suppress light around you. As an action, you can cause all areas of direct sunlight within 300 feet of yourself to become bright light, bright light to become dim and dim light to become total darkness for ten minutes. Sources of light are still visible; only the illumination they provide is reduced. After using this ability, you must take a short or long rest before using it again.",
             ]),
             action : ["reaction", ""],
             usages : 1,
@@ -1294,11 +1286,11 @@ ClassSubList["witch-lunar magic"] = {
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Moonsight",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "You can see through illusions with ease. You have truesight out to a range of 60 feet and you perceive a shimmering halo of moonlight around any creature you can see that has the shapechanger subtype.",
             ]),
             usages : 1,
             recovery : "long rest",
@@ -1313,10 +1305,14 @@ ClassSubList["witch-purple magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Delusion",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : desc([
+                "you can infect the minds of other creatures. As an action, choose one creature you can see within 60 feet to make a Wisdom saving throw. On a failed save, the target creature experiences one of the following illusions of your choice until the end of your next turn: \u2032 You and one other creature of your choice exchange places. Sounds appear to originate from the illusory source, and the subjects of the illusion are rotated to face the appropriate direction.",
+                "\u2032 An imposing physical obstacle, such as a boulder or a tree, exists in a place that you choose. This obstacle must fit inside a 20-foot cube.",
+                "\u2032 A creature you choose is twice as large or twice as small.",
+                "While this hex is active, the target creature does not recognize the sudden appearance of an illusion - to the creature, the illusion has always been there. Physical interaction with an illusion immediately ends this hex, and the target creature instantlxy recognizes that it has been the subject of a hex. A creature that uses its action to examine an illusion can determine that it is an illusion with a successful Intelligence (Investigation) check against your Spell save DC, ending the hex on successful save. If another creature notices that the target creature is under the effect of this hex, it can use its action to make the creature aware of the illusion, ending this hex.",]),
             action : ["action", ""],
 
         },
@@ -1343,35 +1339,33 @@ ClassSubList["witch-purple magic"] = {
             },
         },
         "subclassfeature6": {
-            name : "",
+            name : "Hex: Ignore",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can erase yourself from others' minds. As an action, choose one creature you can see within 60 feet to make a Wisdom saving throw. On a failed save, the target creature can neither see nor hear you until the end of your next turn. This hex ends immediately if you or your familiar deals damage to the creature.",
             ])
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Compel",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "You can violently seize control of a crowd. Choose up to 3 humanoid creatures you can see within 60 feet to each make a Wisdom saving throw, and choose an action for those creatures to take. You can choose for the creatures to take no action, but you cannot choose an action that would be directly harmful to the creature.  On a failed save, a creature moves 15 feet in a direction that you choose at the beginning of its turn, then takes the action that you chose.  On each you use this ability, you must complete a long rest before using it again.",
             ]),
-            action : ["reaction", ""],
+            action : ["action", ""],
             usages : 1,
             recovery : "long rest",
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Deciever",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "creatures have disadvantage on saving throws against illusion and enchantment spells of 3rd level or lower you cast, and disadvantage on saving throws against the following hexes: Charm, Delusion, Discord, Disorient, Hesitate, Ignore, and Slumber.",
             ]),
-            usages : 1,
-            recovery : "long rest",
         }
     }
 
@@ -1395,7 +1389,7 @@ ClassSubList["witch-red magic"] = {
             name : "Bonus Red Magic Spells (Sorcerer)",
             minlevel : 3,            
             spellcastingBonus : {
-                name : "Red Magic (Sorc)",
+                name : "Red Magic (Sorcerer)",
                 class : "sorcerer",
                 spells : ["burning hands", "scorching ray", "fireball", "protection from energy", "ice storm" , "wall of fire","cone of cold", "telekinesis"],
                 selection : ["burning hands", "scorching ray", "fireball", "protection from energy", "ice storm" , "wall of fire","cone of cold", "telekinesis"],
@@ -1406,7 +1400,7 @@ ClassSubList["witch-red magic"] = {
             name : "Bonus Red Magic Spells (Wizard)",
             minlevel : 3,            
             spellcastingBonus : {
-                name : "Red Magic (Wiz)",
+                name : "Red Magic (Wizard)",
                 class : "wizard",
                 spells : ["magic missile", "melf's acid arrow",],
                 selection : ["magic missile", "melf's acid arrow",],
@@ -1453,10 +1447,10 @@ ClassSubList["witch-salt magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Water Wings",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "When you enter this craft at 3rd level, you learn to use your magic to manifest wings made from water, or to propel yourself on aquatic jets. As an action, you can cast this hex and activate your watery powers. As long as this hex is active, your long and high jump distances are doubled and,  if you would fall, you instead glide gently downward at a  rate of 60 feet per round. While gliding, you can move up to 30 feet laterally without using any of your movement.  Casting this hex requires a half-gallon of water.",
             action : ["action", ""],
 
         },
@@ -1483,35 +1477,33 @@ ClassSubList["witch-salt magic"] = {
             },
         },
         "subclassfeature6": {
-            name : "",
+            name : "Fluid Movement",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "your body moves like flowing water.  Whenever you take damage, you can use your reaction to move 5 feet without provoking opportunity attacks.",
             ])
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Oceanic Tomb",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can summon chains of water to bind your opponents. As an action, choose a creature you can see within 60 feet. This creature is paralyzed until the startof your next turn. Once you use this ability, you can't use it again until you finish a long rest.",
             ]),
-            action : ["reaction", ""],
+            action : ["action", ""],
             usages : 1,
             recovery : "long rest",
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Tidal Stride",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you gain the ability to enter a body of water and move within it or from it into another body of water. Any bodies of water you enter must be at least the same size as you. You must use 5 feet of movement to enter a body of water. You instantly know the location of all other bodies of water within 300 feet and, as part of the move used to enter the water, can either pass into one of those bodies or step out of the water you’re in at any point within 300 feet of your entry point. You appear in a spot of your choice within 5 feet of the destination, using another 5 feet of movement.  If you have no movement left, you appear within 5 feet of the water you entered.  You can use this transportation ability once per round.",
             ]),
-            usages : 1,
-            recovery : "long rest",
         }
     }
 
@@ -1523,10 +1515,10 @@ ClassSubList["witch-sand magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Sandstorm",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "you gain the ability to kick up a sandstorm around you. As an action, you create a swirling 30-foot-radius sandstorm centered on yourself. The sphere spreads around corners, its area is lightly obscured, and all ranged attacks in the area have disadvantage. This effect lasts until the end of your next turn.",
             action : ["action", ""],
 
         },
@@ -1553,35 +1545,33 @@ ClassSubList["witch-sand magic"] = {
             },
         },
         "subclassfeature6": {
-            name : "",
+            name : "Dust to Dust",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "your spells drain the vitality from thecreatures they strike. Whenever you cast a spell that drops a creature to 0 hit points, you can reduce the target to a fine gray dust.",
             ])
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Sandpit",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can use your action to transform the ground beneath a target’s feet into a sinking sand pit, threatening to swallow them whole. A 10-foot radius area of natural earth or stone you choose becomes sinking sand. This area is difficult terrain. Any creature that ends its turn there is pulled underneath and must hold its breath or begin suffocating. This effect lasts for 1 minute, after which the sand hardens back into earth and all creatures submerged in it are ejected to an unoccupied space within the area. Once you use this ability, you can’t use it again until you finish a long rest.",
             ]),
-            action : ["reaction", ""],
+            action : ["action", ""],
             usages : 1,
             recovery : "long rest",
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Withering Hex",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "when a single creature is the target of one of your hexes, it also gains one level of exhaustion while it is hexed.",
             ]),
-            usages : 1,
-            recovery : "long rest",
         }
     }
 
@@ -1593,10 +1583,10 @@ ClassSubList["witch-tea magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Soothe",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "you gain a hex to fill your allies with a sense of peace and contentment. As an action, choose a creature you can see within 60 feet. That creature is no longer charmed, frightened, or turned, and any madness effects it is suffering from immediately end.",
             action : ["action", ""],
 
         },
@@ -1622,21 +1612,26 @@ ClassSubList["witch-tea magic"] = {
                 times : [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
             },
         },
+        "subclassfeature3.3" : {
+            name : "Tea Ceremony",
+            minlevel : 3,
+            description : "You can magically conjure enough tea for you and your allies whenever you take a short or long rest.  A creature who drinks this tea loses one additional level of exhaustion during that rest period."
+        },
         "subclassfeature6": {
-            name : "",
+            name : "Friendly Advice",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you learn the guidance, message, and prestidigitation cantrips, if you did not know them already.",
             ])
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Invigorate",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can give yourself a temporary rush of energy by drinking an energizing cup of coffee. On your turn, you can use this feature to take one additional action on top of your regular action and a possible bonus action.  After using this ability, you must take a short or long rest before using it again.",
             ]),
             action : ["reaction", ""],
             usages : 1,
@@ -1644,14 +1639,14 @@ ClassSubList["witch-tea magic"] = {
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Tasseography",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can see glimpses of the future in your tea leaves. When you finish a long or short rest, roll a d20 and record the number rolled. You can replace any attack roll, saving throw, or ability check made by you or a creature that you can see with this foretelling roll. You must choose to do so before the roll. Your foretelling roll can be used only once. If you have not used your foretelling roll when you finish a long or short rest, it is lost forever.",
             ]),
             usages : 1,
-            recovery : "long rest",
+            recovery : "short rest",
         }
     }
 
@@ -1663,10 +1658,10 @@ ClassSubList["witch-white magic"] = {
     source : ["MHP:CW", 16],
     features : {
         "subclassfeature3": {
-            name : "Hex: ??",
+            name : "Hex: Remedy",
             minlevel : 3,
             source : ["MHP:CW", 16],
-            description : "",
+            description : "closes wounds and eases pain. As an action, choose one creature you can see within 60 feet. This creature regains a number of hit points equal to 1d10 + your witch level. A creature affected by this hex can't be affected by it again until it takes a short or long rest.",
             action : ["action", ""],
 
         },
@@ -1693,20 +1688,20 @@ ClassSubList["witch-white magic"] = {
             },
         },
         "subclassfeature6": {
-            name : "",
+            name : "Talisman of Protection",
             minlevel : 6,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "you can craft a talisman which wards off harm.  You can only have one of these talismans at a time.  A creature wearing this talisman has a +2 bonus to AC while not carrying a shield, and can add a d4 to all saving throws it makes.",
             ])
 
         },
         "subclassfeature10": {
-            name : "",
+            name : "Benevolent Surge",
             minlevel : 10,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "as a reaction when you, your familiar, or one of your allies within 30 feet takes damage, that creature regains hit points equal to 1d10 + your Charisma modifier. After using this ability, you must take a short or long rest before using it again.",
             ]),
             action : ["reaction", ""],
             usages : 1,
@@ -1714,11 +1709,11 @@ ClassSubList["witch-white magic"] = {
 
         },
         "subclassfeature14": {
-            name : "",
+            name : "Witch's Gift",
             minlevel : 14,
             source : ["MHP:CW", 16],
             description : desc([
-                "",
+                "when you cast a spell or hex which restores a creature's hit points, that creature gains a +3 bonus to AC until the end of your next turn.",
             ]),
             usages : 1,
             recovery : "long rest",
